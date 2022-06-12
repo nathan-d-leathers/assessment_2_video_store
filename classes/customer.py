@@ -1,13 +1,15 @@
 import csv 
 import os.path
 
+from video_inventory import Video_Inventory
+
 class Customer:
-    
+   
     def __init__(self,id,account_type,first_name,last_name,current_video_rentals):
         self.id = id
-        self.acount_type = account_type,
-        self.first_name = first_name
-        self.last_name = last_name
+        self.account_type = account_type
+        self.first_name = first_name.lower().capitalize()
+        self.last_name = last_name.lower().capitalize()
         self.current_video_rentals = current_video_rentals.split('/')
     
     @classmethod
@@ -53,7 +55,7 @@ class Customer:
 
 # for x in Customer.objects():
 #     print(x.__dict__)
-
+# # 
 # output:
 # {'id': '1', 'acount_type': ('sx',), 'first_name': 'Monica', 'last_name': 'Gellar', 'current_video_rentals': ['The Godfather']}
 # {'id': '2', 'acount_type': ('px',), 'first_name': 'Chandler', 'last_name': 'Bing', 'current_video_rentals': ['The Dark Knight', 'Inception', 'The Prestige']}

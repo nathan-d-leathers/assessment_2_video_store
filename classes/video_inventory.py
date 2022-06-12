@@ -3,7 +3,7 @@ import os.path
 from video import Video
 
 class Video_Inventory(Video):
-
+    
     def __init__(self,id,title,rating,release_year,copies_available):
         super().__init__(id,title,rating,release_year,copies_available)
 

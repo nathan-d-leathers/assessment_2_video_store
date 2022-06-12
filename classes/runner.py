@@ -5,25 +5,44 @@ from store import Store
 store = Store('Code Platoon Video') 
 
 while True:
-    mode = input("\n==Welcome To Code Platoon Video!==\n\n1. View Store Video Inventory\n2. View Customer Rented Videos <customer_id>\n3. Add a New Customer\n4. Rent a Video\n5. Return a Video <customer_id>\n6. Quit\n")
+    mode = input("\n==Welcome To Code Platoon Video!==\n\n1. View Store Video Inventory\n2. View Customer Rented Videos\n3. Add a New Customer\n4. Rent a Video\n5. Return a Video\n6. Quit\n")
     if mode == '1':
         store.view_rental_list()
+        # works, check output format
     if mode == '2':
         customer_id = input('Enter Customer id:')
         store.currently_rented(customer_id)
+        # works:
+        # possible problem with finding new members (check mdoe 3 first)
+        # id 4 returns a double space response
     elif mode == '3':
         customer_data = {'id': 'new_id_num'}
-        customer_data['account_type'] = input('Enter customer account type (Sx,Px,Sf,Pf)\n')
+        customer_data['account_type'] = input('Enter customer account type (sx,px,sf,pf):\n')
         customer_data['first_name'] = input('Enter customer first name:\n')
         customer_data['last_name'] = input('Enter customer last name:\n')
-        customer_data['current_video_rentals'] = input('Enter customers first rentals: \n')
+        customer_data['current_video_rentals'] = input('Enter customers first rentals seperated by slash mark /: \n')
         store.add_customer(customer_data)
+        # works
+        # doesnt store newly added member rentals correctly
+        # doesnt return newly added member rentals(logic problem in looking for film)
+        # slash mark wording on current rental data input statement
     elif mode == '4':
-        store.rent_video()
+        user_id = input("Enter Your Customer ID:\n")
+        title_search = input('Enter Movie Title:\n')
+        store.rent_video(user_id,title_search)
+        # basic functionality
+        # will rent
+        # need to add rules for 4 acct types
+        # need to update inventory and user rental lists
+
     elif mode == '5':
-        store.return_video()
+        user_id = input("Enter Your Customer ID:\n")
+        title_search = input('Enter Movie Title:\n')
+        store.return_video(user_id,title_search)
+        # working code, adds to inventory, removes from user
     elif mode == '6':
         break
+        # works
 
 # == Welcome to Code Platoon Video! ==
 # 1. View store video inventory
