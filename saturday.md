@@ -17,3 +17,15 @@ double check rubric and readme for style and display.
 double check notes
 clean up folder to push to git
 check for logic in naming conventions
+
+
+
+Sunday Afternoon:
+
+try to create a title list and and member id list in store class to check if input value is good or not on all mode cases
+
+-both add and view current on a new customer data it returns a string with no space between the ','
+
+3 add user: needs to check if movie is in inventory before adding it to users current rentals
+
+5 return video needs to check if user has video before accepting return
